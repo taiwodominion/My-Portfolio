@@ -1,6 +1,7 @@
 import "../css/Projects.css";
 import novaImage from "../assets/NovaReach.png";
 import chefImage from "../assets/Chef's-Table.png";
+import flowImage from "../assets/flowpay1.png"
 
 
 const Projects = () => {
@@ -25,7 +26,7 @@ const Projects = () => {
       title: "Flow Pay - Landing Page",
       description: "A sleek, student-focused VTU platform offering instant airtime/data, exam pins, and bill payments with exclusive discounts, showcased through a responsive, conversion-optimized landing page.",
       technologies: ["HTML", "CSS", "JavaScript"],
-      image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d",
+      image: flowImage,
       liveUrl: "https://flow-pay-landing-page.vercel.app/",
       codeUrl: "https://github.com/taiwodominion/Flow-Pay---Landing-Page"
     },
