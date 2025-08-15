@@ -123,12 +123,14 @@
     .hero {
         text-align: center;
         padding-top: 100px;
+        padding-left: 10px;
+        padding-right: 10px;
         display: flex;
         flex-direction: column;
     }
 
     .hero h1 {
-        font-size: 1.1em;
+        font-size: 1.2em;
     }
 
     .hero .container {
