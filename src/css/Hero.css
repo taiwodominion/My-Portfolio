@@ -127,6 +127,10 @@
         flex-direction: column;
     }
 
+    .hero h1 {
+        font-size: 1.1em;
+    }
+
     .hero .container {
         display: flex;
         flex-direction: column;
