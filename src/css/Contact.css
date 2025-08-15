@@ -1,0 +1,122 @@
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: var(--glass);
+    backdrop-filter: blur(5px);
+    padding: 40px;
+    border-radius: 20px;
+    border: var(--border);
+    box-shadow: var(--shadow);
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+form input {
+    width: 100%;
+    padding: 12px 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid black;
+    border-radius: 10px;
+    font-size: 1rem;
+    color: var(--dark);
+    transition: var(--transition);
+}
+
+form input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.2);
+}
+
+textarea {
+    min-height: 150px;
+    min-width: 100%;
+    resize: vertical;
+    padding: 20px;
+    font-size: 18px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.social-link {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--glass);
+    backdrop-filter: blur(5px);
+    border: var(--border);
+    font-size: 1.2rem;
+    transition: var(--transition);
+}
+
+.social-link:hover {
+    background: var(--primary);
+    color: white;
+    transform: translateY(-5px);
+}
+
+/* Form validation styles */
+.form-group.invalid input,
+.form-group.invalid textarea {
+    border-color: #ff4444;
+}
+
+.error-message {
+    color: #ff4444;
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+    display: none;
+}
+
+.form-group.invalid .error-message {
+    display: block;
+}
+
+.success-message {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.error-message {
+    background-color: #ff4444;
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.spinner {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border: 2px solid rgba(255,255,255,.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+    margin-right: 5px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}

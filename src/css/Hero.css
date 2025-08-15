@@ -1,0 +1,151 @@
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding: 0 100px;
+}
+
+.hero-content {
+    max-width: 700px;
+}
+
+.hero .name-color {
+    color: #4361ee;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: var(--gray);
+}
+
+.hero-btns {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 3rem;
+}
+
+.tech-stack {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.tech-item {
+    background: var(--glass);
+    backdrop-filter: blur(5px);
+    padding: 8px 15px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--transition);
+}
+
+.tech-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+
+.tech-item .logo-icon {
+    color: var(--primary);
+    font-size: 1.2em;
+}
+
+.hero-image-container {
+    background: rgb(204, 203, 203);
+    width: 400px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.hero-image-container img {
+    width: 95%;
+    height: 95%;
+    border-radius: 50%;
+}
+
+@media (max-width: 1200px) {
+    .hero {
+        height: auto;
+        padding: 100px 50px 50px; /* Added top padding */
+        /* Remove background: red - was just for testing */
+        min-height: calc(100vh - 80px); /* Adjust 80px to your header height */
+    }
+    .hero-image-container {
+        width: 350px;
+        height: 350px;
+    }
+}
+
+/* @media (max-width: 1200px) {
+    .hero {
+        height: auto;
+        padding: 0 50px;
+        background: red;
+    }
+    .hero-image-container {
+        width: 350px;
+        height: 350px;
+    }
+} */
+
+
+@media (max-width: 992px) {
+    .hero {
+        height: auto;
+        padding: 100px 50px 50px;
+        min-height: calc(100vh - 80px);
+    }
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-image {
+        width: 35%;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        text-align: center;
+        padding-top: 100px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hero .container {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .hero-content {
+        margin: 0 auto;
+    }
+    
+    .hero-btns {
+        justify-content: center;
+    }
+    
+    .tech-stack {
+        justify-content: center;
+    }
+            
+    .hero-image {
+        width: 80%;
+        margin: 50px auto 0;
+    }
+}

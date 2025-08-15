@@ -1,0 +1,109 @@
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+    align-items: stretch; /* Added for equal height cards */
+}
+
+.project-card {
+    background: var(--glass);
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    overflow: hidden;
+    border: var(--border);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    opacity: 1;
+    transform: translateY(0);
+    display: flex; /* Added */
+    flex-direction: column; /* Added */
+    height: 100%; /* Added */
+}
+
+.project-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.project-image {
+    height: 200px;
+    overflow: hidden;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.1);
+}
+
+.project-content {
+    padding: 25px;
+    flex: 1; /* Added */
+    display: flex; /* Added */
+    flex-direction: column; /* Added */
+}
+
+.project-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.project-description {
+    color: var(--gray);
+    margin-bottom: 20px;
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.project-tech span {
+    background: rgba(67, 97, 238, 0.1);
+    color: var(--primary);
+    padding: 3px 10px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+}
+
+.project-links {
+    display: flex;
+    gap: 15px;
+    margin-top: auto; /* Added to push to bottom */
+}
+
+.project-links .btn,
+.project-links .btn-outline {
+    flex: 1; /* Added for equal width */
+    text-align: center;
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .project-links {
+        flex-direction: column;
+    }
+    
+    .project-links .btn,
+    .project-links .btn-outline {
+        width: 100%;
+    }
+}
