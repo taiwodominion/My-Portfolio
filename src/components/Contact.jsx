@@ -58,47 +58,62 @@ const Contact = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!validate()) return;
+      const handleSubmit = async (e) => {
+      e.preventDefault();
+      if (!validate()) return;
 
-    setIsSubmitting(true);
-    
-    try {
-      // Convert form data to plain object
-      const formProps = {
-        name: formData.name,
-        email: formData.email,
-        message: formData.message
-      };
+      setIsSubmitting(true);
+      
+      try {
+        // 1. Create payload with timeout protection
+        const payload = {
+          service_id: import.meta.env.VITE_EMAILJS_SERVICE_ID,
+          template_id: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+          user_id: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+          template_params: {
+            name: formData.name,
+            email: formData.email,
+            message: formData.message
+          }
+        };
 
-      console.log('Sending:', formProps); // Verify data before sending
+        console.log('Sending payload:', payload);
 
-      const response = await emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        formProps, // Send as object instead of formData
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-      );
+        // 2. Use direct fetch with timeout
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 10000);
 
-      if (response.status === 200) {
+        const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(payload),
+          signal: controller.signal
+        });
+
+        clearTimeout(timeoutId);
+
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        
         setSubmitStatus('success');
         setFormData({ name: '', email: '', message: '' });
+
+      } catch (err) {
+        console.error('Full error details:', {
+          error: err.message,
+          timestamp: new Date().toISOString(),
+          envVars: {
+            serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID,
+            templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+            publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY?.slice(0, 6) + '...'
+          }
+        });
+        setSubmitStatus('error');
+      } finally {
+        setIsSubmitting(false);
       }
-    } catch (err) {
-      console.error('Full error:', {
-        error: err,
-        envVars: {
-          serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID,
-          templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-          publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY?.slice(0, 6) + '...' // Show first 6 chars only
-        }
-      });
-      setSubmitStatus('error');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+    };
 
   return (
     <section id="contact">

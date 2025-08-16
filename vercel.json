@@ -1,19 +1,26 @@
 {
-  "headers": [
+  "version": 2,
+  "builds": [
     {
-      "source": "/",
-      "headers": [
-        {
-          "key": "Access-Control-Allow-Origin",
-          "value": "*"
-        }
-      ]
+      "src": "package.json",
+      "use": "@vercel/static-build"
     }
   ],
-  "rewrites": [
+  "routes": [
     {
-      "source": "/api/emailjs",
-      "destination": "https://api.emailjs.com/api/v1.0/email/send"
+      "src": "/api/emailjs",
+      "dest": "https://api.emailjs.com/api/v1.0/email/send",
+      "methods": ["POST"],
+      "headers": {
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json"
+      }
+    },
+    {
+      "src": "/(.*)",
+      "headers": {
+        "Access-Control-Allow-Origin": "*"
+      }
     }
   ]
 }
