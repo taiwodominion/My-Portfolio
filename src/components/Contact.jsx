@@ -15,10 +15,14 @@ const Contact = () => {
   const [submitStatus, setSubmitStatus] = useState(null);
 
   useEffect(() => {
-    emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
+    console.log('Env values:', {
+      service: import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      template: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+      key: import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+    });
   }, []);
 
-    useEffect(() => {
+  useEffect(() => {
     let timer;
     if (submitStatus === 'success') {
       timer = setTimeout(() => {
@@ -62,25 +66,31 @@ const Contact = () => {
     setSubmitStatus(null);
 
     try {
-      const response = await emailjs.send(
+      const response = await emailjs.sendForm(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        {
-          name: formData.name,
-          email: formData.email,
-          message: formData.message
-        },
+        e.target,
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
+      
+      console.log('EmailJS Response:', response);
       
       if (response.status === 200) {
         setSubmitStatus('success');
         setFormData({ name: '', email: '', message: '' });
       } else {
+        console.error('EmailJS returned non-200 status:', response);
         setSubmitStatus('error');
       }
     } catch (err) {
-      console.error('EmailJS error:', err);
+      console.error('EmailJS error details:', {
+        error: err,
+        envVars: {
+          serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID,
+          templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+          publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        }
+      });
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);

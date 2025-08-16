@@ -113,6 +113,10 @@
     .hero h1 {
         font-size: 2.5rem;
     }
+
+    .hero h2 {
+        font-size: 1.2
+    }
     
     .hero-image {
         width: 35%;
@@ -130,7 +134,8 @@
     }
 
     .hero h1 {
-        font-size: 1.2em;
+        font-size: 1.6em;
+        padding-bottom: 20px;
     }
 
     .hero .container {
@@ -144,6 +149,10 @@
     
     .hero-btns {
         justify-content: center;
+    }
+
+    .hero .btn {
+        padding: 7px;
     }
     
     .tech-stack {
