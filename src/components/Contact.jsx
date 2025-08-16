@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { FaGithub, FaLinkedinIn, FaTwitter, FaCodepen } from 'react-icons/fa';
-import emailjs from '@emailjs/browser';
 import '../css/Contact.css';
 
 const Contact = () => {
@@ -58,62 +57,56 @@ const Contact = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-      const handleSubmit = async (e) => {
-      e.preventDefault();
-      if (!validate()) return;
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!validate()) return;
 
-      setIsSubmitting(true);
+    setIsSubmitting(true);
+    
+    try {
+      const payload = {
+        service_id: import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        template_id: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        user_id: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+        template_params: {
+          name: formData.name,
+          email: formData.email,
+          message: formData.message
+        }
+      };
+
+      console.log('Attempting to send:', payload);
+
+      const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      const data = await response.json();
       
-      try {
-        // 1. Create payload with timeout protection
-        const payload = {
-          service_id: import.meta.env.VITE_EMAILJS_SERVICE_ID,
-          template_id: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-          user_id: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
-          template_params: {
-            name: formData.name,
-            email: formData.email,
-            message: formData.message
-          }
-        };
-
-        console.log('Sending payload:', payload);
-
-        // 2. Use direct fetch with timeout
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 10000);
-
-        const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(payload),
-          signal: controller.signal
-        });
-
-        clearTimeout(timeoutId);
-
-        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-        
-        setSubmitStatus('success');
-        setFormData({ name: '', email: '', message: '' });
-
-      } catch (err) {
-        console.error('Full error details:', {
-          error: err.message,
-          timestamp: new Date().toISOString(),
-          envVars: {
-            serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID,
-            templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-            publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY?.slice(0, 6) + '...'
-          }
-        });
-        setSubmitStatus('error');
-      } finally {
-        setIsSubmitting(false);
+      if (response.status !== 200) {
+        throw new Error(data.message || 'Email service failed');
       }
-    };
+
+      setSubmitStatus('success');
+      setFormData({ name: '', email: '', message: '' });
+
+    } catch (err) {
+      console.error('Submission failed:', {
+        error: err.message,
+        time: new Date().toISOString(),
+        envVars: {
+          service: import.meta.env.VITE_EMAILJS_SERVICE_ID?.slice(0, 3) + '...',
+          template: import.meta.env.VITE_EMAILJS_TEMPLATE_ID?.slice(0, 3) + '...',
+          key: import.meta.env.VITE_EMAILJS_PUBLIC_KEY?.slice(0, 6) + '...'
+        }
+      });
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <section id="contact">
