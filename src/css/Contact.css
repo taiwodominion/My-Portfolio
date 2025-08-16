@@ -72,13 +72,39 @@ textarea {
     color: white;
     transform: translateY(-5px);
 }
-
-/* Form validation styles */
+/* 
 .form-group.invalid input,
 .form-group.invalid textarea {
     border-color: #ff4444;
+} */
+
+.form-popup {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: 500;
+  animation: fadeIn 0.3s ease-in-out;
 }
 
+.form-popup.success {
+  background-color: #e0ffe5;
+  color: #256029;
+  border: 1px solid #25b34b;
+}
+
+.form-popup.error {
+  background-color: #ffe0e0;
+  color: #8a1f1f;
+  border: 1px solid #e03c3c;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 
 .error-message {
     color: #ff4444;
     font-size: 0.8rem;
@@ -119,4 +145,4 @@ textarea {
 
 @keyframes spin {
     to { transform: rotate(360deg); }
-}
+} */
