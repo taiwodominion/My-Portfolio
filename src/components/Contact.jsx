@@ -63,32 +63,35 @@ const Contact = () => {
     if (!validate()) return;
 
     setIsSubmitting(true);
-    setSubmitStatus(null);
-
+    
     try {
-      const response = await emailjs.sendForm(
+      // Convert form data to plain object
+      const formProps = {
+        name: formData.name,
+        email: formData.email,
+        message: formData.message
+      };
+
+      console.log('Sending:', formProps); // Verify data before sending
+
+      const response = await emailjs.send(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        e.target,
+        formProps, // Send as object instead of formData
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
-      
-      console.log('EmailJS Response:', response);
-      
+
       if (response.status === 200) {
         setSubmitStatus('success');
         setFormData({ name: '', email: '', message: '' });
-      } else {
-        console.error('EmailJS returned non-200 status:', response);
-        setSubmitStatus('error');
       }
     } catch (err) {
-      console.error('EmailJS error details:', {
+      console.error('Full error:', {
         error: err,
         envVars: {
           serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID,
           templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-          publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+          publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY?.slice(0, 6) + '...' // Show first 6 chars only
         }
       });
       setSubmitStatus('error');
