@@ -4,6 +4,22 @@
     box-sizing: border-box;
 }
 
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+body::-webkit-scrollbar-track {
+  background: none;
+  border-radius: 3px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 3px;
+}
+
+
 a {
     text-decoration: none;
     color: inherit;

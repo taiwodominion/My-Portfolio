@@ -2,6 +2,7 @@ import "../css/Projects.css";
 import novaImage from "../assets/NovaReach.png";
 import chefImage from "../assets/Chef's-Table.png";
 import flowImage from "../assets/flowpay1.png"
+import flowPayDashboard from '../assets/flow-pay-dashboard.png'
 
 
 const Projects = () => {
@@ -30,9 +31,19 @@ const Projects = () => {
       liveUrl: "https://flow-pay-landing-page.vercel.app/",
       codeUrl: "https://github.com/taiwodominion/Flow-Pay---Landing-Page"
     },
+    {
+      title: "Flow Pay - Dashboard Ui",
+      description: "A sleek, virtual top up platform offering instant airtime/data, exam pins, and bill payments with exclusive discounts, showcased through a responsive, conversion-optimized Dashboard.", 
+      technologies: ["React.js", "Css3", "Responsive Design"],
+      image: flowPayDashboard, 
+      liveUrl: "https://taiwo-dominion-flow-pay-dashboard-ui.vercel.app/",
+      codeUrl: "https://github.com/taiwodominion/Flow-Pay-Dashboard-Ui"
+    }
     // Add links to other projects...
   ];
 
+
+  // https://taiwo-dominion-flow-pay-dashboard-ui.vercel.app/
   return (
     <section id="projects">
       <div className="container">

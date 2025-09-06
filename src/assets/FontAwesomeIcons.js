@@ -1,8 +1,5 @@
-// src/icons/FontAwesome.js
-
 import { library } from '@fortawesome/fontawesome-svg-core';
 
-// Solid icons (basic icons like phone, envelope, etc.)
 import {
   faEnvelope,
   faPhone,
@@ -10,7 +7,6 @@ import {
   faArrowUpRightFromSquare,
 } from '@fortawesome/free-solid-svg-icons';
 
-// Brand icons (social media)
 import {
   faGithub,
   faLinkedin,
@@ -18,7 +14,6 @@ import {
   faInstagram,
 } from '@fortawesome/free-brands-svg-icons';
 
-// Add the icons to the library
 library.add(
   faEnvelope,
   faPhone,
