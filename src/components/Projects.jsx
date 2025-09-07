@@ -1,36 +1,14 @@
-import "../css/Projects.css";
 import novaImage from "../assets/NovaReach.png";
-import chefImage from "../assets/Chef's-Table.png";
+import vintexcImage from "../assets/vintexc-hero.png"
+import chefImage from "../assets/Chef-s-Table.png";
 import flowImage from "../assets/flowpay1.png"
 import flowPayDashboard from '../assets/flow-pay-dashboard.png'
+import "../css/Projects.css";
+
 
 
 const Projects = () => {
   const projects = [
-    {
-      title: "NovaReach",
-      description: "A responsive, dark-themed digital marketing site...",
-      technologies: ["CSS", "JavaScript", "HTML"],
-      image: novaImage,
-      liveUrl: "https://nova-reach-sigma.vercel.app/",
-      codeUrl: "https://github.com/taiwodominion/NovaReach" // Add code URL
-    },
-    {
-       title: "Chef's Table",
-       description: "Modern culinary storytelling meets refined tehnique -- a chef's personal table of seasonal recipes, notes and kitchen craft",
-       technologies: ["HTML", "CSS", "JavaScript"],
-       image: chefImage,
-       liveUrl: "https://chef-s-table-nine.vercel.app/",
-      codeUrl: "https://github.com/taiwodominion/Chef-s-Table"
-    },
-    {
-      title: "Flow Pay - Landing Page",
-      description: "A sleek, student-focused VTU platform offering instant airtime/data, exam pins, and bill payments with exclusive discounts, showcased through a responsive, conversion-optimized landing page.",
-      technologies: ["HTML", "CSS", "JavaScript"],
-      image: flowImage,
-      liveUrl: "https://flow-pay-landing-page.vercel.app/",
-      codeUrl: "https://github.com/taiwodominion/Flow-Pay---Landing-Page"
-    },
     {
       title: "Flow Pay - Dashboard Ui",
       description: "A sleek, virtual top up platform offering instant airtime/data, exam pins, and bill payments with exclusive discounts, showcased through a responsive, conversion-optimized Dashboard.", 
@@ -38,12 +16,42 @@ const Projects = () => {
       image: flowPayDashboard, 
       liveUrl: "https://taiwo-dominion-flow-pay-dashboard-ui.vercel.app/",
       codeUrl: "https://github.com/taiwodominion/Flow-Pay-Dashboard-Ui"
+    },
+    {
+      title: "Vintexc",
+      description: "Vintexc is a modern and intuitive cryptocurrency web application designed to keep users informed, empowered, and supported as they navigate the world of digital assets.",
+      technologies: ["React.js", "Css3", "Api Integration", "Responsive Design"],
+      image: vintexcImage,
+      liveUrl: "https://vintexc-ui-taiwo-dominion.vercel.app/",
+      codeUrl: "https://github.com/taiwodominion/vintexc-ui"
+    },
+    {
+      title: "NovaReach",
+      description: "A responsive, dark-themed digital marketing site...",
+      technologies: ["CSS", "JavaScript", "HTML"],
+      image: novaImage,
+      liveUrl: "https://nova-reach-sigma.vercel.app/",
+      codeUrl: "https://github.com/taiwodominion/NovaReach"
+    },
+    {
+       title: "Chef-s Table",
+       description: "Modern culinary storytelling meets refined technique - a chef's personal table of seasonal recipes, notes and kitchen craft",
+       technologies: ["HTML", "CSS", "JavaScript"],
+       image: chefImage,
+       liveUrl: "https://chef-s-table-nine.vercel.app/",
+       codeUrl: "https://github.com/taiwodominion/Chef-s-Table"
+    },
+    {
+      title: "Flow Pay - Landing Page",
+      description: "A sleek, student-focused VTU platform offering instant airtime/data, exam pins, and bill payments with exclusive discounts, showcased through a responsive, conversion-optimized landing page.",
+      technologies: ["HTML", "CSS", "JavaScript", "Responsive Design"],
+      image: flowImage,
+      liveUrl: "https://flow-pay-landing-page.vercel.app/",
+      codeUrl: "https://github.com/taiwodominion/Flow-Pay---Landing-Page"
     }
-    // Add links to other projects...
   ];
 
 
-  // https://taiwo-dominion-flow-pay-dashboard-ui.vercel.app/
   return (
     <section id="projects">
       <div className="container">
@@ -56,9 +64,8 @@ const Projects = () => {
                 <img 
                   src={project.image} 
                   alt={project.title} 
-                  loading="lazy" // Add lazy loading
+                  loading="lazy"
                 />
-                {/* Overlay with link to live demo */}
                 <a 
                   href={project.liveUrl} 
                   className="image-overlay"

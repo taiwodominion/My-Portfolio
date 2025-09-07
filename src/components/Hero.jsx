@@ -1,4 +1,4 @@
-import { FaHtml5, FaCss3Alt, FaJs, FaMobileAlt, FaGitAlt, FaReact } from 'react-icons/fa';
+import { FaHtml5, FaCss3Alt, FaJs, FaMobileAlt, FaGitAlt, FaReact, FaNetworkWired } from 'react-icons/fa';
 import heroImage from "../assets/my_animated_pic.jpg"
 import "../css/Hero.css"
 
@@ -41,6 +41,10 @@ const Hero = () => {
               <FaGitAlt />
               <span>Git</span>
             </div>
+            <div className="tech-item">
+              <FaNetworkWired />
+              <span>Api Integration</span>
+            </div>
           </div>
         </div>
       </div>
@@ -49,6 +53,7 @@ const Hero = () => {
           src={heroImage} 
           alt="Taiwo Dominion" 
           className="profile-image"
+          loading="lazy"
         />
       </div>
     </section>

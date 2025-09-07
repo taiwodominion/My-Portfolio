@@ -327,17 +327,14 @@ const Contact = () => {
         </form>
 
         <div className="social-links">
-             <a href="https://github.com/yourprofile" target="_blank" rel="noopener noreferrer">
+             <a href="https://github.com/taiwodominion" target="_blank" rel="noopener noreferrer">
                <FaGithub />
              </a>
-             <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer">
+             {/* <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer">
                <FaLinkedinIn />
-             </a>
-             <a href="https://twitter.com/yourprofile" target="_blank" rel="noopener noreferrer">
+             </a> */}
+             <a href="https://x.com/_dom_codes" target="_blank" rel="noopener noreferrer">
                <FaTwitter />
-             </a>
-             <a href="https://codepen.io/yourprofile" target="_blank" rel="noopener noreferrer">
-               <FaCodepen />
              </a>
            </div>
       </div>
