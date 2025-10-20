@@ -10,6 +10,7 @@
 
 .skills h1 {
     text-wrap: wrap;
+    font-size: 3.8rem;;
 }
 
 .skills .section-title::after {

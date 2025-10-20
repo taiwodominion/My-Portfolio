@@ -3,7 +3,8 @@
   --primary-light: #131313;
   --secondary: #333333;
   --dark: #332d2d;
-  --light: #f8f9fa;
+  /* --light: #f8f9fa; */
+    --light: #eaf0f7;
   --gray: #6c757d;
   --success: #4cc9f0;
   --glass: rgba(255, 255, 255, 0.05);
