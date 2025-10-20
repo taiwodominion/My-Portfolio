@@ -180,8 +180,8 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
-import { FaGithub, FaLinkedinIn, FaTwitter, FaCodepen } from 'react-icons/fa';
-import '../css/Contact.css'; // Your custom styles
+// import { FaGithub, FaTwitter} from 'react-icons/fa';
+import '../css/ContactForm.css'; 
 
 const Contact = () => {
   const formRef = useRef();
@@ -194,7 +194,7 @@ const Contact = () => {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(null); // "success" | "error" | null
+  const [submitStatus, setSubmitStatus] = useState(null);
 
   useEffect(() => {
     if (submitStatus) {
@@ -259,7 +259,6 @@ const Contact = () => {
         <h1 className="section-title">Get In Touch</h1>
 
         <form id="contactForm" ref={formRef} onSubmit={handleSubmit}>
-          {/* ✅ Popup message */}
           {submitStatus === 'success' && (
             <div className="form-popup success">✅ Email sent successfully!</div>
           )}
@@ -326,17 +325,14 @@ const Contact = () => {
           </button>
         </form>
 
-        <div className="social-links">
+        {/* <div className="social-links">
              <a href="https://github.com/taiwodominion" target="_blank" rel="noopener noreferrer">
                <FaGithub />
              </a>
-             {/* <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer">
-               <FaLinkedinIn />
-             </a> */}
              <a href="https://x.com/_dom_codes" target="_blank" rel="noopener noreferrer">
                <FaTwitter />
              </a>
-           </div>
+           </div> */}
       </div>
     </section>
   );

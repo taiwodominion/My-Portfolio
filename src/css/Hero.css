@@ -1,22 +1,162 @@
 .hero {
     height: 100vh;
     display: flex;
-    align-items: center;
     overflow: hidden;
-    padding: 0 100px;
+    padding: 100px 100px 0 150px;
 }
 
 .hero-content {
     max-width: 700px;
 }
 
+.hero-content-head {
+    display: flex;
+    justify-content: space-between;
+}
+/* 
+.hero-content-head .social-links {
+    display: flex;
+    gap: 20px;
+}
+
+.hero-content-head .social-link {
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+    transition: width 0.3s ease;
+    display: flex;
+    gap: 10px;
+}
+
+.hero-content-head .social-link:hover {
+    width: 120px;
+    background: #333;
+    border-radius: 10px;
+    color: #fff;
+}
+
+.hero-content-head .social-link a {
+    font-size: 1.2rem;
+} */
+ 
+.hero-content-head .social-links {
+  display: flex;
+  gap: 16px;
+}
+
+.hero-content-head .social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  transition: background 0.25s ease, padding 0.25s ease, border-radius 0.25s ease;
+  cursor: pointer;
+  overflow: visible;
+}
+
+.hero-content-head .social-link .icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  flex-shrink: 0;
+  transition: transform 0.25s ease, border-radius 0.25s ease;
+}
+
+.hero-content-head .social-link .label {
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0;
+  transition: max-width 0.3s ease, opacity 0.2s ease 0.05s;
+  color: #fff;
+}
+
+.hero-content-head .social-link:hover {
+  background: #333;
+  padding: 6px 12px;
+  border-radius: 10px;
+}
+
+.hero-content-head .social-link:hover .label {
+  width: 160px;
+  opacity: 1;
+}
+
+.hero-content-head .social-link:hover .icon {
+  background: transparent;
+  color: #fff;
+}
+
+
+/* 
+.hero-content-head .social-links {
+    display: flex;
+    gap: 20px;
+}
+
+.hero-content-head .social-link {
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+    transition: width 0.3s ease;
+    display: flex;
+    gap: 10px;
+}
+
+.hero-content-head .social-link:hover {
+    width: 120px;
+    background: #333;
+    border-radius: 10px;
+    color: #fff;
+}
+
+.hero-content-head .social-link a {
+    font-size: 1.2rem;
+} */
+
+
 .hero .name-color {
     color: #4361ee;
 }
 
-.hero h1 {
-    font-size: 3.5rem;
+.hero-identity {
+    display: flex;
+    gap: 10px;
+}
+
+.hero-identity .hero-id-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.hero .hero-identity img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.hero .hero-identity h1 {
+    font-size: 1.1rem;
     line-height: 1.1;
+}
+
+.hero .hero-identity p {
+    font-size: 0.9rem;
+    line-height: 1.1;
+}
+
+.hero-content h2 {
+    font-style: italic;
+    font-size: 1.9rem;
+    padding-bottom: 20px;
 }
 
 .hero p {
@@ -65,49 +205,33 @@
 .hero-image-container {
     background: rgb(204, 203, 203);
     width: 400px;
-    height: 300px;
+    height: 400px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
+    border-radius: 50% 50% 0 0;
 }
 
 .hero-image-container img {
     width: 95%;
     height: 95%;
-    border-radius: 50%;
+    border-radius: 50% 50% 0 0;
 }
 
 @media (max-width: 1200px) {
     .hero {
         height: auto;
-        padding: 100px 50px 50px; /* Added top padding */
-        /* Remove background: red - was just for testing */
         min-height: calc(100vh - 80px); /* Adjust 80px to your header height */
     }
     .hero-image-container {
-        width: 350px;
-        height: 350px;
+        display: none;
     }
 }
 
-/* @media (max-width: 1200px) {
+
+@media (max-width: 1100px) {
     .hero {
         height: auto;
-        padding: 0 50px;
-        background: red;
-    }
-    .hero-image-container {
-        width: 350px;
-        height: 350px;
-    }
-} */
-
-
-@media (max-width: 992px) {
-    .hero {
-        height: auto;
-        padding: 100px 50px 50px;
         min-height: calc(100vh - 80px);
     }
     .hero h1 {
@@ -117,16 +241,12 @@
     .hero h2 {
         font-size: 1.2
     }
-    
-    .hero-image {
-        width: 35%;
-    }
 }
 
 @media (max-width: 768px) {
     .hero {
         text-align: center;
-        padding-top: 100px;
+        padding-top: 50px;
         padding-left: 10px;
         padding-right: 10px;
         display: flex;
@@ -162,5 +282,16 @@
     .hero-image {
         width: 80%;
         margin: 50px auto 0;
+    }
+}
+
+@media (max-width: 400px) {
+    .hero-id-info {
+        align-items: center;
+    }
+
+    .hero-content-head {
+        flex-direction: column;
+        align-items: center;
     }
 }

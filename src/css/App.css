@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+.app {
+    display: flex;
+}
+
 
 body::-webkit-scrollbar {
   display: none;
@@ -46,7 +50,7 @@ img {
 }
 
 .container {
-    width: 90%;
+    width: 80%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
@@ -181,6 +185,14 @@ section {
 }
 
 @media (max-width: 576px) {
+    .container {
+        width: 100%;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
     header {
         padding: 20px 0;
     }
@@ -198,7 +210,7 @@ section {
     }
 
     .hero {
-        padding-top: 170px;
+        padding-top: 130px;
     }
     
     .btn {
