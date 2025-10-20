@@ -65,21 +65,21 @@ const Projects = () => {
           <div className="projects-text">
             <h1 className="section-title">Projects i've worked on.</h1>
             <p>
-              I'm a passionate frontend developer crafting modern web
-              applications. What began as curiosity about how websites work has
-              blossomed into a full-fledged love for creating digital
-              experiences that users adore.
+              Each project represents a unique challenge and learning
+              opportunity in my journey as a frontend developer. From responsive
+              landing pages to complex web applications, I've poured attention
+              to detail and clean code into every creation.
             </p>
+            {/* <p>
+              Below you'll find a collection of my work showcasing modern design
+              principles, responsive layouts, and user-focused experiences. Each
+              project demonstrates my ability to transform ideas into
+              functional, visually appealing digital solutions.
+            </p> */}
             <p>
-              I specialize in crafting pixel-perfect, responsive interfaces with
-              clean, efficient code. I believe in the power of design and
-              technology to create meaningful experiences that make people's
-              lives better.
-            </p>
-            <p>
-              When I'm not coding, you can find me reading tech blogs, gaming
-              with friends, or exploring new JavaScript frameworks in my free
-              time.
+              I believe in building products that not only look great but also
+              deliver exceptional user experiences through intuitive interfaces
+              and smooth interactions.
             </p>
           </div>
           <div className="projects-grid">

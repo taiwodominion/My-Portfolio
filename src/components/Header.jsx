@@ -1,130 +1,10 @@
-// import { useState, useEffect } from 'react';
-// import { useNavigate } from 'react-router-dom';
-// import "../css/Header.css"
-// import { FaCode, FaSun, FaMoon } from 'react-icons/fa';
-
-// const Header = () => {
-//   const [darkMode, setDarkMode] = useState(false);
-//   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-//   const [scrolled, setScrolled] = useState(false);
-//   const [activeLink, setActiveLink] = useState('about');
-  
-//   const navigate = useNavigate();
-
-//   useEffect(() => {
-//     const handleScroll = () => {
-//       setScrolled(window.scrollY > 50);
-//       const sections = ['about', 'skills', 'projects', 'contact'];
-//       sections.forEach(section => {
-//         const element = document.getElementById(section);
-//         if (element) {
-//           const rect = element.getBoundingClientRect();
-//           if (rect.top <= 100 && rect.bottom >= 100) {
-//             setActiveLink(section);
-//           }
-//         }
-//       });
-//     };
-
-//     window.addEventListener('scroll', handleScroll);
-//     return () => window.removeEventListener('scroll', handleScroll);
-//   }, []);
-
-//   const toggleTheme = () => {
-//     setDarkMode(!darkMode);
-//     document.body.classList.toggle('dark-mode');
-//   };
-
-//   const toggleMobileMenu = () => {
-//     setMobileMenuOpen(!mobileMenuOpen);
-//   };
-
-//   const closeMobileMenu = () => {
-//     setMobileMenuOpen(false);
-//   };
-
-//   const handleLinkClick = (link) => {
-//     setActiveLink(link);
-//     closeMobileMenu();
-//   };
-
-//   return (
-//     <header id="header" className={scrolled ? 'scrolled' : ''}>
-//       <div className="container">
-//         <nav className="navbar">
-//           <a href="/" className="logo" onClick={() => handleLinkClick('home')}>
-//             <FaCode className="logo-icon" />
-//             <span>Taiwo Dominion</span>
-//           </a>
-          
-//           <ul className={`nav-links ${mobileMenuOpen ? 'active' : ''}`}>
-//             <li>
-//               <a 
-//                 href="#" 
-//                 onClick={() => handleLinkClick('about')} 
-//                 className={activeLink === 'about' ? 'active' : ''}
-//               >
-//                 About
-//               </a>
-//             </li>
-//             <li>
-//               <a 
-//                 href="#about" 
-//                 onClick={() => handleLinkClick('skills')} 
-//                 className={activeLink === 'skills' ? 'active' : ''}
-//               >
-//                 Skills
-//               </a>
-//             </li>
-//             <li>
-//               <a 
-//                 href="#projects" 
-//                 onClick={() => handleLinkClick('projects')} 
-//                 className={activeLink === 'projects' ? 'active' : ''}
-//               >
-//                 Projects
-//               </a>
-//             </li>
-//             <li>
-//               <a 
-//                 href="#contact" 
-//                 onClick={() => handleLinkClick('contact')} 
-//                 className={activeLink === 'contact' ? 'active' : ''}
-//               >
-//                 Contact
-//               </a>
-//             </li>
-//           </ul>
-          
-//           <div className="theme-toggle" id="themeToggle" onClick={toggleTheme}>
-//             {/* <FaSun className={darkMode ? '' : 'active'} /> */}
-//             <FaMoon className={darkMode ? 'active' : ''} />
-//           </div>
-          
-//           <div className={`hamburger ${mobileMenuOpen ? 'active' : ''}`} id="hamburger" onClick={toggleMobileMenu}>
-//             <span></span>
-//             <span></span>
-//             <span></span>
-//           </div>
-//         </nav>
-//       </div>
-//     </header>
-//   );
-// };
-
-// export default Header;
-
-
-
-
-
 import { useState, useEffect } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import "../css/Header.css"
 import { FaCode, FaSun, FaMoon } from 'react-icons/fa';
 
 const Header = () => {
-  const [darkMode, setDarkMode] = useState(false);
+  // const [darkMode, setDarkMode] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeLink, setActiveLink] = useState('about');
@@ -133,7 +13,6 @@ const Header = () => {
   const location = useLocation();
 
   useEffect(() => {
-    // Set active link based on current route (remove hash if present)
     const currentPath = location.pathname.replace('/', '').replace('#', '');
     if (currentPath && ['about', 'skills', 'projects', 'contact'].includes(currentPath)) {
       setActiveLink(currentPath);
@@ -151,10 +30,10 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const toggleTheme = () => {
-    setDarkMode(!darkMode);
-    document.body.classList.toggle('dark-mode');
-  };
+  // const toggleTheme = () => {
+  //   setDarkMode(!darkMode);
+  //   document.body.classList.toggle('dark-mode');
+  // };
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
@@ -217,9 +96,9 @@ const Header = () => {
             </li>
           </ul>
           
-          <div className="theme-toggle" id="themeToggle" onClick={toggleTheme}>
+          {/* <div className="theme-toggle" id="themeToggle" onClick={toggleTheme}>
             <FaMoon className={darkMode ? 'active' : ''} />
-          </div>
+          </div> */}
           
           <div className={`hamburger ${mobileMenuOpen ? 'active' : ''}`} id="hamburger" onClick={toggleMobileMenu}>
             <span></span>

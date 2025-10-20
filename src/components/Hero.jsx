@@ -48,26 +48,33 @@ const Hero = () => {
               Whatsapp
               </div>
             </div> */}
-<div className="social-links">
-  <div className="social-link">
-    <div className="icon">
-      <a href="https://github.com/taiwodominion" target="_blank" rel="noopener noreferrer">
-        <FaGithub />
-      </a>
-    </div>
-    <p className="label">Github</p>
-  </div>
+            <div className="social-links">
+              <div className="social-link">
+                <div className="icon">
+                  <a
+                    href="https://github.com/taiwodominion"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FaGithub />
+                  </a>
+                </div>
+                <p className="label">Github</p>
+              </div>
 
-  <div className="social-link">
-    <div className="icon">
-      <a href="https://wa.me/+2349162527468" target="_blank" rel="noopener noreferrer">
-        <FaWhatsapp />
-      </a>
-    </div>
-    <p className="label">Whatsapp</p>
-  </div>
-</div>
-
+              <div className="social-link">
+                <div className="icon">
+                  <a
+                    href="https://wa.me/+2349162527468"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FaWhatsapp />
+                  </a>
+                </div>
+                <p className="label">Whatsapp</p>
+              </div>
+            </div>
           </div>
           <h2>I'm the bridge between user's needs and business goals.</h2>
           <p>
@@ -76,13 +83,12 @@ const Hero = () => {
           </p>
 
           <div className="hero-btns">
-            <button className="btn"
-            onClick={() => navigate('/projects')}
-            >
+            <button className="btn" onClick={() => navigate("/projects")}>
               View my work
             </button>
-            <button className="btn btn-outline"
-            onClick={() => navigate('/contact')}
+            <button
+              className="btn btn-outline"
+              onClick={() => navigate("/contact")}
             >
               Contact me
             </button>

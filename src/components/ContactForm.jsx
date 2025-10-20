@@ -310,6 +310,7 @@ const Contact = () => {
               rows="5"
               value={formData.message}
               onChange={handleChange}
+              maxLength="300"
               required
             />
           </div>
