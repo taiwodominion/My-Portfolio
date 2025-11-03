@@ -204,25 +204,64 @@
 }
 
 .hero-image-container {
-    background: rgb(204, 203, 203);
-    width: 400px;
-    height: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50% 50% 0 0;
+  position: relative;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50% 50% 0 0;
+  overflow: hidden;
+  box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
 }
 
-.hero-image-container img {
-    width: 95%;
-    height: 95%;
-    border-radius: 50% 50% 0 0;
+.hero-bg {
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  border-radius: 50% 50% 0 0;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(24px);
+  outline: 2px solid rgba(255, 255, 255, 0.7);
+  z-index: 1;
 }
+
+.hero-blob {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #0084ff, #00eeff);
+  opacity: 0.8;
+  filter: blur(40px);
+  animation: blob-bounce 6s infinite ease-in-out;
+  z-index: 0;
+}
+
+@keyframes blob-bounce {
+  0% { transform: translate(-100%, -100%) translate3d(0, 0, 0); }
+  25% { transform: translate(-100%, -100%) translate3d(100%, 0, 0); }
+  50% { transform: translate(-100%, -100%) translate3d(100%, 100%, 0); }
+  75% { transform: translate(-100%, -100%) translate3d(0, 100%, 0); }
+  100% { transform: translate(-100%, -100%) translate3d(0, 0, 0); }
+}
+
+.profile-image {
+  width: 95%;
+  height: 95%;
+  border-radius: 50% 50% 0 0;
+  object-fit: cover;
+  position: relative;
+  z-index: 2;
+}
+
 
 @media (max-width: 1200px) {
     .hero {
         height: auto;
-        min-height: calc(100vh - 80px); /* Adjust 80px to your header height */
+        min-height: calc(100vh - 80px);
     }
     .hero-image-container {
         display: none;
@@ -288,11 +327,16 @@
 
 @media (max-width: 400px) {
     .hero-id-info {
-        align-items: center;
+        align-items: start;
     }
 
     .hero-content-head {
         flex-direction: column;
         align-items: center;
     }
+
+    .hero-content-head .social-links {
+        margin-top: 0;
+    }
+
 }

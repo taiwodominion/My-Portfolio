@@ -23,7 +23,6 @@ body::-webkit-scrollbar-thumb {
   border-radius: 3px;
 }
 
-
 a {
     text-decoration: none;
     color: inherit;
@@ -83,7 +82,7 @@ section {
     padding: 12px 28px;
     background: #4e4e4e;
     color: rgb(255, 255, 255);
-    border-radius: 50px;
+    /* border-radius: 50px; */
     font-weight: 600;
     transition: var(--transition);
     border: none;
@@ -237,7 +236,7 @@ section {
     }
 
     .hero {
-        padding-top: 130px;
+        padding-top: 80px;
     }
     
     .btn {

@@ -127,6 +127,8 @@ const Hero = () => {
         </div>
       </div>
       <div className="hero-image-container">
+        <div className="hero-bg"></div>
+        <div className="hero-blob"></div>
         <img
           src={heroImage}
           alt="Taiwo Dominion"
