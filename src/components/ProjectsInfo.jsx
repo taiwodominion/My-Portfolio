@@ -1,5 +1,6 @@
 import novaImage from "../assets/NovaReach.png";
 import vintexcImage from "../assets/vintexc-hero.png";
+import tdstoreImg from "../assets/td-store.png";
 import chefImage from "../assets/Chef-s-Table.png";
 import flowImage from "../assets/flowpay1.png";
 import flowPayDashboard from "../assets/flow-pay-dashboard.png";
@@ -29,6 +30,14 @@ const Projects = () => {
       image: vintexcImage,
       liveUrl: "https://vintexc-ui-taiwo-dominion.vercel.app/",
       codeUrl: "https://github.com/taiwodominion/vintexc-ui",
+    },
+    {
+      title: "TD-Store",
+      description: "A modern, responsive e-commerce website built with React.js featuring product collections, a shopping cart, and a smooth checkout experience.",
+      technologies: ["React.js", "CSS", "Responsive Design", "API Integration"],
+      image: tdstoreImg,
+      liveUrl: "https://td-store.vercel.app/",
+      codeUrl: "https://github.com/taiwodominion/TD-Store",
     },
     {
       title: "NovaReach",

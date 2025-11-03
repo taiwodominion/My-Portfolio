@@ -79,7 +79,8 @@ header {
   padding: 10px 15px;
   display: block;
   transform: rotate(-90deg);
-  color: black;
+  /* color: black; */
+  color: var(--dark);
   border-radius: 8px;
   transition: var(--transition);
 }
@@ -187,6 +188,7 @@ header {
 
   .nav-links a {
     transform: rotate(0);
+    color: var(--secondary)
   }
   
   .nav-links.active {

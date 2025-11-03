@@ -81,9 +81,7 @@
 
     .tech-skills {
         grid-template-columns: 1fr 1fr 1fr;
-        align-items: center;
         text-align: center;
-        justify-content: center;
     }
 
     .skill {
