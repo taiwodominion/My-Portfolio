@@ -21,7 +21,7 @@ const Hero = () => {
 
   useEffect(() => {
     const checkScreen = () => {
-      const desktop = window.innerWidth >= 1200;
+      const desktop = window.innerWidth >= 900;
       setIsDesktop(desktop);
 
       if (desktop) {
