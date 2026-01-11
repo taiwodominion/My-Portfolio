@@ -64,6 +64,7 @@ section {
     margin-bottom: 1.5rem;
     position: relative;
     display: inline-block;
+    color: white;
 }
 
 .section-title::after {
@@ -73,7 +74,7 @@ section {
     left: 0;
     width: 60%;
     height: 4px;
-    background: linear-gradient(90deg, var(--primary), var(--primary-light));
+    background: linear-gradient(90deg, white, aliceblue);
     border-radius: 2px;
 }
 
@@ -123,7 +124,7 @@ section {
   justify-content: center;
   cursor: pointer;
   transition: background 0.3s ease, transform 0.2s ease;
-  z-index: 1000; /* keeps it above everything */
+  z-index: 1000;
 }
 
 .theme-toggle:hover {

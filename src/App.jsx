@@ -4,16 +4,16 @@ import About from "./pages/About";
 import Skills from './pages/Skills'
 import Projects from "./pages/Projects";
 import Contact from './pages/Contact'
-import { FaSun, FaMoon } from 'react-icons/fa';
+// import { FaSun, FaMoon } from 'react-icons/fa';
 import "./css/App.css";
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
+  // const [darkMode, setDarkMode] = useState(false);
 
-  const toggleTheme = () => {
-    setDarkMode(!darkMode);
-    document.body.classList.toggle('dark-mode');
-  };
+  // const toggleTheme = () => {
+  //   setDarkMode(!darkMode);
+  //   document.body.classList.toggle('dark-mode');
+  // };
   useEffect(() => {
     const headers = document.querySelectorAll("h1");
 
@@ -51,9 +51,9 @@ function App() {
         <Route path="/projects" element={<Projects />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
-      <div className="theme-toggle" id="themeToggle" onClick={toggleTheme}>
+      {/* <div className="theme-toggle" id="themeToggle" onClick={toggleTheme}>
             {darkMode ? <FaMoon className="active" /> : <FaSun />}
-      </div>
+      </div> */}
       </>
   );
 }

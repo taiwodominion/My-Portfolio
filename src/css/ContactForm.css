@@ -1,3 +1,8 @@
+#contact {
+    background: #000;
+    color: rgb(209, 208, 208);
+}
+
 #contact .container {
     width: 70%;
 }
@@ -112,46 +117,3 @@ textarea {
         width: 100%;
     }
 }
-
-/* 
-.error-message {
-    color: #ff4444;
-    font-size: 0.8rem;
-    margin-top: 0.25rem;
-    display: none;
-}
-
-.form-group.invalid .error-message {
-    display: block;
-}
-
-.success-message {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px;
-    border-radius: 4px;
-    margin-bottom: 15px;
-}
-
-.error-message {
-    background-color: #ff4444;
-    color: white;
-    padding: 10px;
-    border-radius: 4px;
-    margin-bottom: 15px;
-}
-
-.spinner {
-    display: inline-block;
-    width: 12px;
-    height: 12px;
-    border: 2px solid rgba(255,255,255,.3);
-    border-radius: 50%;
-    border-top-color: #fff;
-    animation: spin 1s ease-in-out infinite;
-    margin-right: 5px;
-}
-
-@keyframes spin {
-    to { transform: rotate(360deg); }
-} */

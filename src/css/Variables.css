@@ -1,9 +1,8 @@
-:root {
+/* :root {
   --primary: #1d1b1b;
   --primary-light: #131313;
   --secondary: #333333;
   --dark: #332d2d;
-  /* --light: #f8f9fa; */
   --light: #eaf0f7;
   --gray: #6c757d;
   --success: #4cc9f0;
@@ -24,4 +23,30 @@
   --glass: rgba(0, 0, 0, 0.05);
   --shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   --border: 1px solid rgba(0, 0, 0, 0.05);
+} */
+
+:root {
+  /* Default: Light Mode */
+  --bg-color: #f8f9fa;       /* The "light" background */
+  --text-main: #1d1b1b;      /* The "dark" text */
+  --text-muted: #6c757d;     
+  
+  --primary-accent: #4361ee; /* Your brand blue */
+  --secondary: #333333;
+  
+  --glass: rgba(255, 255, 255, 0.7);
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  --border: 1px solid rgba(0, 0, 0, 0.1);
+  --transition: 0.3s ease;
+}
+
+.dark-mode {
+  /* Dark Mode Overrides */
+  --bg-color: #131313;       /* The "dark" background */
+  --text-main: #eeeeee;      /* The "light" text */
+  --text-muted: #c0c6cc;
+  
+  --glass: rgba(255, 255, 255, 0.05);
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --border: 1px solid rgba(255, 255, 255, 0.05);
 }

@@ -1,7 +1,7 @@
-import novaImage from "../assets/NovaReach.png";
+import novaImage from "../assets/NovaReach.jpg";
 import vintexcImage from "../assets/vintexc-hero.png";
-import tdstoreImg from "../assets/td-store.png";
-import chefImage from "../assets/Chef-s-Table.png";
+import tdstoreImg from "../assets/td-store.jpg";
+import chefImage from "../assets/Chef-s-Table.jpg";
 import flowImage from "../assets/flowpay1.png";
 import flowPayDashboard from "../assets/flow-pay-dashboard.png";
 import "../css/ProjectsInfo.css";

@@ -1,16 +1,10 @@
-/* .about {
-    background: var(--glass);
-    backdrop-filter: blur(5px);
-    border-radius: 20px;
-    padding: 60px;
-    margin: 50px 0;
-    border: var(--border);
-    box-shadow: var(--shadow);
-} */
+#skills {
+    background: #000;
+}
 
 .skills h1 {
     text-wrap: wrap;
-    font-size: 3.8rem;;
+    font-size: 3.8rem;
 }
 
 .skills .section-title::after {
@@ -29,7 +23,7 @@
 
 .skills-text p {
     margin-bottom: 1.5rem;
-    color: var(--gray);
+    color: rgb(209, 208, 208);
 }
 
 .tech-skills {
