@@ -20,11 +20,11 @@ const Projects = () => {
     {
       title: "Vintexc",
       description:
-        "Vintexc is a modern and intuitive cryptocurrency web application designed to keep users informed, empowered, and supported as they navigate the world of digital assets.",
+        "Vintexc is a fullstack modern and intuitive cryptocurrency web application designed to keep users informed, empowered, and supported as they navigate the world of digital assets.",
       technologies: [
         "React.js",
         "Css3",
-        "Api Integration",
+        "Postman Api Integration",
         "Responsive Design",
       ],
       image: vintexcImage,
@@ -33,8 +33,8 @@ const Projects = () => {
     },
     {
       title: "TD-Store",
-      description: "A modern, responsive e-commerce website built with React.js featuring product collections, a shopping cart, and a smooth checkout experience.",
-      technologies: ["React.js", "CSS", "Responsive Design", "API Integration"],
+      description: "A full-stack e-commerce platform featuring a real-time product management system. Integrated Firebase for live data synchronization, cloud image storage, and secure user authentication, complemented by a custom-built admin dashboard for inventory control.",
+      technologies: ["React.js", "CSS", "Firebase" , "Responsive Design", "API Integration"],
       image: tdstoreImg,
       liveUrl: "https://td-store.vercel.app/",
       codeUrl: "https://github.com/taiwodominion/TD-Store",

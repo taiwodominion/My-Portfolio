@@ -6,6 +6,7 @@ import {
   FaReact,
   FaGitAlt,
 } from "react-icons/fa";
+import { SiFirebase } from "react-icons/si";
 
 const About = () => {
   return (
@@ -51,9 +52,11 @@ const About = () => {
               <span className="skill">
                 <FaGitAlt color="red"/>
                 Git</span>
+              <span className="skill">
+                <SiFirebase color="#FFCA28"/>
+                Firebase</span>
               <span className="skill">Responsive Design</span>
               <span className="skill">Web Performance</span>
-              <span className="skill">API Integration</span>
               <span className="skill">Design to code</span>
               <span className="skill">Accessibility</span>
             </div>

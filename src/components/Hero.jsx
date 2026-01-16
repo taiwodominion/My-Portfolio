@@ -5,6 +5,7 @@ import { SiJavascript } from "react-icons/si";
 import { SiReact } from "react-icons/si";
 import { SiGit } from "react-icons/si";
 import { SiPostman } from "react-icons/si";
+import { SiFirebase } from "react-icons/si";
 
 import { FaGithub, FaWhatsapp } from "react-icons/fa6";
 import heroImage from "../assets/my_animated_pic.jpg";
@@ -43,7 +44,8 @@ const Hero = () => {
     { icon: <SiJavascript />, label: "JavaScript" },
     { icon: <SiReact />, label: "React.js" },
     { icon: <SiGit />, label: "Git" },
-    { icon: <SiPostman />, label: "API Integration" }
+    { icon: <SiPostman />, label: "API Integration" },
+    { icon: <SiFirebase />, label: "Firebase" }
   ];
 
   return (
