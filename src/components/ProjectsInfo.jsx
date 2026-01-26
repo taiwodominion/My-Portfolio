@@ -1,6 +1,7 @@
 import novaImage from "../assets/NovaReach.jpg";
 import vintexcImage from "../assets/vintexc-hero.png";
 import tdstoreImg from "../assets/td-store.jpg";
+import nexuxImage from "../assets/nexux-preview.jpg"
 import chefImage from "../assets/Chef-s-Table.jpg";
 import flowImage from "../assets/flowpay1.png";
 import flowPayDashboard from "../assets/flow-pay-dashboard.png";
@@ -8,15 +9,6 @@ import "../css/ProjectsInfo.css";
 
 const Projects = () => {
   const projects = [
-    {
-      title: "Flow Pay - Dashboard Ui",
-      description:
-        "A sleek, virtual top up platform offering instant airtime/data, exam pins, and bill payments with exclusive discounts, showcased through a responsive, conversion-optimized Dashboard.",
-      technologies: ["React.js", "Css3", "Responsive Design"],
-      image: flowPayDashboard,
-      liveUrl: "https://taiwo-dominion-flow-pay-dashboard-ui.vercel.app/",
-      codeUrl: "https://github.com/taiwodominion/Flow-Pay-Dashboard-Ui",
-    },
     {
       title: "Vintexc",
       description:
@@ -32,12 +24,29 @@ const Projects = () => {
       codeUrl: "https://github.com/taiwodominion/vintexc-ui",
     },
     {
+      title: "Flow Pay - Dashboard Ui",
+      description:
+        "A sleek, virtual top up platform offering instant airtime/data, exam pins, and bill payments with exclusive discounts, showcased through a responsive, conversion-optimized Dashboard.",
+      technologies: ["React.js", "Css3", "Responsive Design"],
+      image: flowPayDashboard,
+      liveUrl: "https://taiwo-dominion-flow-pay-dashboard-ui.vercel.app/",
+      codeUrl: "https://github.com/taiwodominion/Flow-Pay-Dashboard-Ui",
+    },
+    {
       title: "TD-Store",
       description: "A full-stack e-commerce platform featuring a real-time product management system. Integrated Firebase for live data synchronization, cloud image storage, and secure user authentication, complemented by a custom-built admin dashboard for inventory control.",
       technologies: ["React.js", "CSS", "Firebase" , "Responsive Design", "API Integration"],
       image: tdstoreImg,
       liveUrl: "https://td-store.vercel.app/",
       codeUrl: "https://github.com/taiwodominion/TD-Store",
+    },
+    {
+      title: "NexusFlow",
+      description: "A high-fidelity, conversion-optimized React engine designed for B2B SaaS acquisition..",
+      technologies: ["React.js", "CSS3" , "Responsive Design"],
+      image: nexuxImage,
+      liveUrl: "https://nexuxflow.vercel.app/",
+      codeUrl: "https://github.com/taiwodominion/Nexuxflow",
     },
     {
       title: "NovaReach",
