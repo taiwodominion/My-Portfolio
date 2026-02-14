@@ -1,15 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import "../css/Header.css"
-import { FaCode, FaSun, FaMoon } from 'react-icons/fa';
+import { FaCode } from 'react-icons/fa';
 
 const Header = () => {
-  // const [darkMode, setDarkMode] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeLink, setActiveLink] = useState('about');
   
-  const navigate = useNavigate();
   const location = useLocation();
 
   useEffect(() => {
@@ -25,17 +23,12 @@ const Header = () => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // const toggleTheme = () => {
-  //   setDarkMode(!darkMode);
-  //   document.body.classList.toggle('dark-mode');
-  // };
-
-  const toggleMobileMenu = () => {
+  const toggleMobileMenu = (e) => {
+    e.stopPropagation();
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
@@ -45,62 +38,38 @@ const Header = () => {
 
   const handleLinkClick = (link) => {
     setActiveLink(link);
-    closeMobileMenu();
+    closeMobileLink();
   };
 
   return (
-    <header id="header" className={scrolled ? 'scrolled' : ''}>
-      <div className="container">
+    <header id="header" className={`${scrolled ? 'scrolled' : ''} ${mobileMenuOpen ? 'menu-open' : ''}`}>
+      <div className="header-container">
         <nav className="navbar">
           <Link to="/" className="logo" onClick={() => handleLinkClick('about')}>
             <FaCode className="logo-icon" />
-            <span>Taiwo Dominion</span>
+            {/* <span>Taiwo Dominion</span> */}
           </Link>
           
           <ul className={`nav-links ${mobileMenuOpen ? 'active' : ''}`}>
             <li>
-              <Link 
-                to="/" 
-                onClick={() => handleLinkClick('about')} 
-                className={activeLink === 'about' ? 'active' : ''}
-              >
-                About
-              </Link>
+              <Link to="/" onClick={() => handleLinkClick('about')} className={activeLink === 'about' ? 'active' : ''}>About</Link>
             </li>
             <li>
-              <Link 
-                to="/skills" 
-                onClick={() => handleLinkClick('skills')} 
-                className={activeLink === 'skills' ? 'active' : ''}
-              >
-                Skills
-              </Link>
+              <Link to="/skills" onClick={() => handleLinkClick('skills')} className={activeLink === 'skills' ? 'active' : ''}>Skills</Link>
             </li>
             <li>
-              <Link 
-                to="/projects" 
-                onClick={() => handleLinkClick('projects')} 
-                className={activeLink === 'projects' ? 'active' : ''}
-              >
-                Projects
-              </Link>
+              <Link to="/projects" onClick={() => handleLinkClick('projects')} className={activeLink === 'projects' ? 'active' : ''}>Projects</Link>
             </li>
             <li>
-              <Link 
-                to="/contact" 
-                onClick={() => handleLinkClick('contact')} 
-                className={activeLink === 'contact' ? 'active' : ''}
-              >
-                Contact
-              </Link>
+              <Link to="/contact" onClick={() => handleLinkClick('contact')} className={activeLink === 'contact' ? 'active' : ''}>Contact</Link>
             </li>
-          </ul>
-          
-          {/* <div className="theme-toggle" id="themeToggle" onClick={toggleTheme}>
-            <FaMoon className={darkMode ? 'active' : ''} />
-          </div> */}
-          
-          <div className={`hamburger ${mobileMenuOpen ? 'active' : ''}`} id="hamburger" onClick={toggleMobileMenu}>
+          </ul>          
+
+          <div 
+            className={`hamburger ${mobileMenuOpen ? 'active' : ''}`} 
+            onClick={toggleMobileMenu}
+            aria-label="Menu"
+          >
             <span></span>
             <span></span>
             <span></span>
