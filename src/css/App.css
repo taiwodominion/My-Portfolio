@@ -169,7 +169,7 @@ section {
         font-size: 2rem;
     }
     
-    .nav-links {
+    /* .nav-links {
         position: fixed;
         top: 80px;
         left: 0;
@@ -187,7 +187,7 @@ section {
             
     .nav-links.active {
         transform: translateY(0);
-    }
+    } */
     
     .hamburger {
         display: flex;
