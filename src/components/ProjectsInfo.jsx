@@ -1,6 +1,7 @@
 import novaImage from "../assets/NovaReach.jpg";
 import vintexcImage from "../assets/vintexc-hero.png";
 import tdstoreImg from "../assets/td-store.jpg";
+import gideonPortfolioImg from "../assets/gideon-portfolio-preview.png"
 import nexuxImage from "../assets/nexux-preview.jpg"
 import chefImage from "../assets/Chef-s-Table.jpg";
 import flowImage from "../assets/flowpay1.png";
@@ -39,6 +40,14 @@ const Projects = () => {
       image: tdstoreImg,
       liveUrl: "https://td-store.vercel.app/",
       codeUrl: "https://github.com/taiwodominion/TD-Store",
+    },
+    {
+      title: "Roland Gideon Portfolio",
+      description: "A high-converting design solution rooted in deep user research, aimed at solving complex pain points through intuitive navigation and clean UI.",
+      technologies: ["React.js", "Css3", "GSAP", "Responsive Design", "API Integration"],
+      image: gideonPortfolioImg,
+      liveUrl: "https://roland-gideon-portfolio.vercel.app/",
+      codeUrl: "https://github.com/taiwodominion/Roland-Gideon-Portfolio",
     },
     {
       title: "NexusFlow",
