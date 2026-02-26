@@ -25,9 +25,9 @@ const Projects = () => {
       codeUrl: "https://github.com/taiwodominion/vintexc-ui",
     },
     {
-      title: "Flow Pay - Dashboard Ui",
+      title: "Flow Pay - VTU Web app",
       description:
-        "A sleek, virtual top up platform offering instant airtime/data, exam pins, and bill payments with exclusive discounts, showcased through a responsive, conversion-optimized Dashboard.",
+        "A high-performance VTU ecosystem featuring a professional-grade Dashboard with integrated wallet funding, real-time transaction tracking, and a comprehensive self-service help center. Built for speed and security, it offers seamless airtime, data, and betting wallet services through a modernized, icon-driven interface designed for maximum user retention.",
       technologies: ["React.js", "Css3", "Responsive Design"],
       image: flowPayDashboard,
       liveUrl: "https://taiwo-dominion-flow-pay-dashboard-ui.vercel.app/",
