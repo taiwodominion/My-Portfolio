@@ -2,9 +2,12 @@ import React, { useEffect, useRef } from "react";
 import "../css/SkillsInfo.css";
 import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaGitAlt } from "react-icons/fa";
 import { SiFirebase, SiFigma, SiVite } from "react-icons/si";
+import { useNavigate } from "react-router-dom";
+
 
 const SkillsInfo = () => {
   const sectionRef = useRef(null);
+  const navigate = useNavigate();
 
   const skills = [
     { name: "HTML5", icon: <FaHtml5 />, color: "#E34F26", level: 95 },
@@ -111,8 +114,9 @@ const SkillsInfo = () => {
           </div>
           <div className="skills__cta-actions">
             <a
-              href="#contact"
+              href=""
               className="skills__cta-btn skills__cta-btn--primary"
+              onClick={() => navigate("/contact")}
             >
               Hire Me
               <svg
@@ -127,8 +131,9 @@ const SkillsInfo = () => {
               </svg>
             </a>
             <a
-              href="#projects"
+              href=""
               className="skills__cta-btn skills__cta-btn--outline"
+              onClick={() => navigate("/projects")}
             >
               See Projects
             </a>
