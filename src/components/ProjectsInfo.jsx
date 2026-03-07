@@ -1,160 +1,223 @@
+import { useEffect, useRef, useState } from "react";
 import novaImage from "../assets/NovaReach.jpg";
 import vintexcImage from "../assets/vintexc-hero.png";
 import tdstoreImg from "../assets/td-store.jpg";
-import gideonPortfolioImg from "../assets/gideon-portfolio-preview.png"
-import nexuxImage from "../assets/nexux-preview.jpg"
+import gideonPortfolioImg from "../assets/gideon-portfolio-preview.png";
+import nexuxImage from "../assets/nexux-preview.jpg";
 import chefImage from "../assets/Chef-s-Table.jpg";
 import flowImage from "../assets/flowpay1.png";
 import flowPayDashboard from "../assets/flow-pay-dashboard.png";
 import "../css/ProjectsInfo.css";
 
+export const projects = [
+  {
+    title: "Vintexc",
+    tag: "Crypto Platform",
+    year: "2024",
+    description: "A fullstack modern cryptocurrency web app keeping users informed and empowered as they navigate digital assets.",
+    technologies: ["React.js", "CSS3", "Postman API", "Responsive"],
+    image: vintexcImage,
+    liveUrl: "https://vintexc-ui-taiwo-dominion.vercel.app/",
+    codeUrl: "https://github.com/taiwodominion/vintexc-ui",
+    accent: "#61DAFB",
+  },
+  {
+    title: "Flow Pay Dashboard",
+    tag: "VTU Ecosystem",
+    year: "2024",
+    description: "High-performance VTU dashboard with integrated wallet funding, real-time transaction tracking, and seamless airtime/data services.",
+    technologies: ["React.js", "CSS3", "Responsive"],
+    image: flowPayDashboard,
+    liveUrl: "https://taiwo-dominion-flow-pay-dashboard-ui.vercel.app/",
+    codeUrl: "https://github.com/taiwodominion/Flow-Pay-Dashboard-Ui",
+    accent: "#4361ee",
+  },
+  {
+    title: "TD-Store",
+    tag: "E-Commerce",
+    year: "2024",
+    description: "Full-stack e-commerce platform with real-time product management, Firebase live sync, cloud image storage, and a custom admin dashboard.",
+    technologies: ["React.js", "CSS", "Firebase", "API Integration"],
+    image: tdstoreImg,
+    liveUrl: "https://td-store.vercel.app/",
+    codeUrl: "https://github.com/taiwodominion/TD-Store",
+    accent: "#FFCA28",
+  },
+  {
+    title: "Roland Gideon Portfolio",
+    tag: "Portfolio",
+    year: "2024",
+    description: "High-converting design solution rooted in deep user research with intuitive navigation and clean UI.",
+    technologies: ["React.js", "CSS3", "GSAP", "API Integration"],
+    image: gideonPortfolioImg,
+    liveUrl: "https://roland-gideon-portfolio.vercel.app/",
+    codeUrl: "https://github.com/taiwodominion/Roland-Gideon-Portfolio",
+    accent: "#7b2ff7",
+  },
+  {
+    title: "NexusFlow",
+    tag: "B2B SaaS",
+    year: "2024",
+    description: "High-fidelity, conversion-optimized React engine designed for B2B SaaS acquisition.",
+    technologies: ["React.js", "CSS3", "Responsive"],
+    image: nexuxImage,
+    liveUrl: "https://nexuxflow.vercel.app/",
+    codeUrl: "https://github.com/taiwodominion/Nexuxflow",
+    accent: "#3ddc84",
+  },
+  {
+    title: "NovaReach",
+    tag: "Marketing Site",
+    year: "2023",
+    description: "Responsive, dark-themed digital marketing site with bold visual identity and conversion-focused layout.",
+    technologies: ["HTML", "CSS", "JavaScript"],
+    image: novaImage,
+    liveUrl: "https://nova-reach-sigma.vercel.app/",
+    codeUrl: "https://github.com/taiwodominion/NovaReach",
+    accent: "#FF6C37",
+  },
+  {
+    title: "Chef's Table",
+    tag: "Culinary",
+    year: "2023",
+    description: "Modern culinary storytelling meets refined technique — a chef's personal table of seasonal recipes and kitchen craft.",
+    technologies: ["HTML", "CSS", "JavaScript"],
+    image: chefImage,
+    liveUrl: "https://chef-s-table-nine.vercel.app/",
+    codeUrl: "https://github.com/taiwodominion/Chef-s-Table",
+    accent: "#E34F26",
+  },
+  {
+    title: "Flow Pay Landing",
+    tag: "Landing Page",
+    year: "2023",
+    description: "Sleek, student-focused VTU platform with instant airtime/data, exam pins, and bill payments through a conversion-optimized page.",
+    technologies: ["HTML", "CSS", "JavaScript", "Responsive"],
+    image: flowImage,
+    liveUrl: "https://flow-pay-landing-page.vercel.app/",
+    codeUrl: "https://github.com/taiwodominion/Flow-Pay---Landing-Page",
+    accent: "#4361ee",
+  },
+];
+
+const ProjectCard = ({ project, index }) => {
+  const cardRef = useRef(null);
+  const [visible, setVisible] = useState(false);
+  const [hovered, setHovered] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
+      { threshold: 0.15 }
+    );
+    if (cardRef.current) observer.observe(cardRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={cardRef}
+      className={`proj-card ${visible ? "proj-card--visible" : ""}`}
+      style={{ "--accent": project.accent, "--delay": `${index * 0.08}s` }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      <span className="proj-card__num">
+        {String(index + 1).padStart(2, "0")}
+      </span>
+
+      <div className="proj-card__img-wrap">
+        <img src={project.image} alt={project.title} loading="lazy" className="proj-card__img" />
+        <div className="proj-card__img-overlay" />
+        <span className="proj-card__year">{project.year}</span>
+      </div>
+
+      <div className="proj-card__body">
+        <div className="proj-card__meta">
+          <span className="proj-card__tag">{project.tag}</span>
+        </div>
+
+        <h3 className="proj-card__title">{project.title}</h3>
+        <p className="proj-card__desc">{project.description}</p>
+
+        <div className="proj-card__tech">
+          {project.technologies.map((t, i) => (
+            <span key={i} className="proj-card__tech-item">{t}</span>
+          ))}
+        </div>
+
+        <div className="proj-card__links">
+          <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="proj-card__btn proj-card__btn--primary">
+            Live Demo
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
+            </svg>
+          </a>
+          <a href={project.codeUrl} target="_blank" rel="noopener noreferrer" className="proj-card__btn proj-card__btn--outline">
+            Code
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div className="proj-card__accent-bar" />
+    </div>
+  );
+};
+
 const Projects = () => {
-  const projects = [
-    {
-      title: "Vintexc",
-      description:
-        "Vintexc is a fullstack modern and intuitive cryptocurrency web application designed to keep users informed, empowered, and supported as they navigate the world of digital assets.",
-      technologies: [
-        "React.js",
-        "Css3",
-        "Postman Api Integration",
-        "Responsive Design",
-      ],
-      image: vintexcImage,
-      liveUrl: "https://vintexc-ui-taiwo-dominion.vercel.app/",
-      codeUrl: "https://github.com/taiwodominion/vintexc-ui",
-    },
-    {
-      title: "Flow Pay - VTU Web app",
-      description:
-        "A high-performance VTU ecosystem featuring a professional-grade Dashboard with integrated wallet funding, real-time transaction tracking, and a comprehensive self-service help center. Built for speed and security, it offers seamless airtime, data, and betting wallet services through a modernized, icon-driven interface designed for maximum user retention.",
-      technologies: ["React.js", "Css3", "Responsive Design"],
-      image: flowPayDashboard,
-      liveUrl: "https://taiwo-dominion-flow-pay-dashboard-ui.vercel.app/",
-      codeUrl: "https://github.com/taiwodominion/Flow-Pay-Dashboard-Ui",
-    },
-    {
-      title: "TD-Store",
-      description: "A full-stack e-commerce platform featuring a real-time product management system. Integrated Firebase for live data synchronization, cloud image storage, and secure user authentication, complemented by a custom-built admin dashboard for inventory control.",
-      technologies: ["React.js", "CSS", "Firebase" , "Responsive Design", "API Integration"],
-      image: tdstoreImg,
-      liveUrl: "https://td-store.vercel.app/",
-      codeUrl: "https://github.com/taiwodominion/TD-Store",
-    },
-    {
-      title: "Roland Gideon Portfolio",
-      description: "A high-converting design solution rooted in deep user research, aimed at solving complex pain points through intuitive navigation and clean UI.",
-      technologies: ["React.js", "Css3", "GSAP", "Responsive Design", "API Integration"],
-      image: gideonPortfolioImg,
-      liveUrl: "https://roland-gideon-portfolio.vercel.app/",
-      codeUrl: "https://github.com/taiwodominion/Roland-Gideon-Portfolio",
-    },
-    {
-      title: "NexusFlow",
-      description: "A high-fidelity, conversion-optimized React engine designed for B2B SaaS acquisition..",
-      technologies: ["React.js", "CSS3" , "Responsive Design"],
-      image: nexuxImage,
-      liveUrl: "https://nexuxflow.vercel.app/",
-      codeUrl: "https://github.com/taiwodominion/Nexuxflow",
-    },
-    {
-      title: "NovaReach",
-      description: "A responsive, dark-themed digital marketing site...",
-      technologies: ["CSS", "JavaScript", "HTML"],
-      image: novaImage,
-      liveUrl: "https://nova-reach-sigma.vercel.app/",
-      codeUrl: "https://github.com/taiwodominion/NovaReach",
-    },
-    {
-      title: "Chef-s Table",
-      description:
-        "Modern culinary storytelling meets refined technique - a chef's personal table of seasonal recipes, notes and kitchen craft",
-      technologies: ["HTML", "CSS", "JavaScript"],
-      image: chefImage,
-      liveUrl: "https://chef-s-table-nine.vercel.app/",
-      codeUrl: "https://github.com/taiwodominion/Chef-s-Table",
-    },
-    {
-      title: "Flow Pay - Landing Page",
-      description:
-        "A sleek, student-focused VTU platform offering instant airtime/data, exam pins, and bill payments with exclusive discounts, showcased through a responsive, conversion-optimized landing page.",
-      technologies: ["HTML", "CSS", "JavaScript", "Responsive Design"],
-      image: flowImage,
-      liveUrl: "https://flow-pay-landing-page.vercel.app/",
-      codeUrl: "https://github.com/taiwodominion/Flow-Pay---Landing-Page",
-    },
-  ];
+  const headerRef = useRef(null);
+  const [headerVisible, setHeaderVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setHeaderVisible(true); },
+      { threshold: 0.2 }
+    );
+    if (headerRef.current) observer.observe(headerRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section id="projects">
-      <div className="container">
-        <div className="projects-wrapper">
-          <div className="projects-text">
-            <h1 className="section-title">Projects i've worked on.</h1>
-            <p>
-              Each project represents a unique challenge and learning
-              opportunity in my journey as a frontend developer. From responsive
-              landing pages to complex web applications, I've poured attention
-              to detail and clean code into every creation.
+      <div className="proj__orb proj__orb--1" />
+      <div className="proj__orb proj__orb--2" />
+      <div className="proj__grain" />
+
+      <div className="proj__inner">
+
+        <div ref={headerRef} className={`proj__header ${headerVisible ? "proj__header--visible" : ""}`}>
+          <div className="proj__header-left">
+            <p className="proj__eyebrow">
+              <span className="proj__eyebrow-line" />
+              Selected Work
             </p>
-            {/* <p>
-              Below you'll find a collection of my work showcasing modern design
-              principles, responsive layouts, and user-focused experiences. Each
-              project demonstrates my ability to transform ideas into
-              functional, visually appealing digital solutions.
-            </p> */}
-            <p>
-              I believe in building products that not only look great but also
-              deliver exceptional user experiences through intuitive interfaces
-              and smooth interactions.
-            </p>
+            <h2 className="proj__title">
+              Projects I've<br />
+              <span className="proj__title-accent">shipped.</span>
+            </h2>
           </div>
-          <div className="projects-grid">
-            {projects.map((project, index) => (
-              <div className="project-card" key={index}>
-                <div className="project-image">
-                  <img src={project.image} alt={project.title} loading="lazy" />
-                  <a
-                    href={project.liveUrl}
-                    className="image-overlay"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`View ${project.title} live demo`}
-                  >
-                    <span>View Project</span>
-                  </a>
-                </div>
-                <div className="project-content">
-                  <h3 className="project-title">{project.title}</h3>
-                  <p className="project-description">{project.description}</p>
-                  <div className="project-tech">
-                    {project.technologies.map((tech, i) => (
-                      <span key={i}>{tech}</span>
-                    ))}
-                  </div>
-                  <div className="project-links">
-                    <a
-                      href={project.liveUrl}
-                      className="btn"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Live Demo
-                    </a>
-                    <a
-                      href={project.codeUrl}
-                      className="btn btn-outline"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Source Code
-                    </a>
-                  </div>
-                </div>
-              </div>
-            ))}
+          <div className="proj__header-right">
+            <p className="proj__subtitle">
+              From crypto platforms to e-commerce engines — each project is a problem solved, a deadline met, and a client satisfied. Clean code. Real results.
+            </p>
+            <div className="proj__count">
+              <span className="proj__count-num">{projects.length}</span>
+              <span className="proj__count-label">Projects shipped</span>
+            </div>
           </div>
         </div>
+
+        <div className="proj__rule"><span>Work</span></div>
+
+        <div className="proj__list">
+          {projects.map((project, i) => (
+            <ProjectCard key={i} project={project} index={i} />
+          ))}
+        </div>
+
       </div>
     </section>
   );
