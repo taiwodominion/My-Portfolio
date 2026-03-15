@@ -9,7 +9,7 @@ import {
   SiFirebase,
 } from "react-icons/si";
 import { FaGithub, FaWhatsapp } from "react-icons/fa6";
-import heroImage from "../assets/my_animated_pic.jpg";
+import heroImage from "/my_animated_pic.jpg";
 import { useNavigate } from "react-router-dom";
 import { projects } from "./ProjectsInfo";
 import "../css/Hero.css";

@@ -27,7 +27,7 @@ function App() {
 
           span.addEventListener("mouseenter", () => {
             span.classList.remove("animate");
-            void span.offsetWidth; // Force reflow
+            void span.offsetWidth;
             span.classList.add("animate");
           });
         }
