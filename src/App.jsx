@@ -44,9 +44,6 @@ function App() {
         <Route path="/projects" element={<Projects />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
-      {/* <div className="theme-toggle" id="themeToggle" onClick={toggleTheme}>
-            {darkMode ? <FaMoon className="active" /> : <FaSun />}
-      </div> */}
       </>
   );
 }

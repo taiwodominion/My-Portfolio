@@ -190,7 +190,7 @@ const Hero = () => {
           style={{ "--delay": "0.6s" }}
         >
           <div className="hero__stat">
-            <span className="hero__stat-num">2+</span>
+            <span className="hero__stat-num">3+</span>
             <span className="hero__stat-label">Years Exp.</span>
           </div>
           <div className="hero__stat-divider" />
@@ -206,7 +206,6 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* ref={canvasWrapperRef} */}
       <div className="hero__3d">
         <div className="hero__3d-ring hero__3d-ring--outer" />
         <div className="hero__3d-ring hero__3d-ring--inner" />
