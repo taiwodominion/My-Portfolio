@@ -34,12 +34,8 @@
 }
 
 @keyframes orb-drift {
-  from {
-    transform: translate(0, 0) scale(1);
-  }
-  to {
-    transform: translate(40px, 30px) scale(1.08);
-  }
+  from { transform: translate(0, 0) scale(1); }
+  to { transform: translate(40px, 30px) scale(1.08); }
 }
 
 .skills__grain {
@@ -64,19 +60,12 @@
 }
 
 @keyframes reveal-up {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 #skills .skills__header,
 #skills .skills__rule,
-#skills .skills__grid,
 #skills .skills__cta {
   opacity: 0;
 }
@@ -84,12 +73,11 @@
 #skills.skills--visible .skills__header {
   animation: reveal-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.1s forwards;
 }
+
 #skills.skills--visible .skills__rule {
   animation: reveal-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.25s forwards;
 }
-#skills.skills--visible .skills__grid {
-  animation: reveal-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.35s forwards;
-}
+
 #skills.skills--visible .skills__cta {
   animation: reveal-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.5s forwards;
 }
@@ -198,13 +186,8 @@
 }
 
 @keyframes dot-pulse {
-  0%,
-  100% {
-    box-shadow: 0 0 0 0 rgba(61, 220, 132, 0.5);
-  }
-  50% {
-    box-shadow: 0 0 0 5px rgba(61, 220, 132, 0);
-  }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(61, 220, 132, 0.5); }
+  50% { box-shadow: 0 0 0 5px rgba(61, 220, 132, 0); }
 }
 
 .skills__rule {
@@ -224,125 +207,6 @@
   flex: 1;
   height: 1px;
   background: var(--border);
-}
-
-.skills__grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 14px;
-}
-
-.skill-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 20px 18px 18px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  position: relative;
-  overflow: hidden;
-  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-  cursor: default;
-  animation: reveal-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
-  animation-delay: calc(0.35s + var(--i) * 0.06s);
-  opacity: 0;
-}
-
-#skills.skills--visible .skill-card {
-  animation: reveal-up 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
-  animation-delay: calc(0.4s + var(--i) * 0.07s);
-}
-
-.skill-card__top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.skill-card__icon {
-  font-size: 2rem;
-  color: var(--c);
-  transition: transform 0.3s ease;
-  filter: drop-shadow(0 0 8px color-mix(in srgb, var(--c) 40%, transparent));
-}
-
-.skill-card__level {
-  font-family: "DM Mono", monospace;
-  font-size: 0.65rem;
-  color: #444;
-  letter-spacing: 0.05em;
-  transition: color 0.3s ease;
-}
-
-.skill-card__name {
-  font-family: "Syne", sans-serif;
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: #888;
-  letter-spacing: 0.02em;
-  transition: color 0.3s ease;
-}
-
-.skill-card__bar-track {
-  width: 100%;
-  height: 2px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 2px;
-  overflow: hidden;
-}
-
-.skill-card__bar-fill {
-  height: 100%;
-  width: 0%;
-  background: linear-gradient(
-    90deg,
-    var(--c),
-    color-mix(in srgb, var(--c) 60%, white)
-  );
-  border-radius: 2px;
-  transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
-  transition-delay: calc(0.6s + var(--i) * 0.08s);
-}
-
-#skills.skills--visible .skill-card__bar-fill {
-  width: var(--level);
-}
-
-.skill-card__glow {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    circle at 50% 120%,
-    color-mix(in srgb, var(--c) 15%, transparent),
-    transparent 70%
-  );
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  pointer-events: none;
-}
-
-.skill-card:hover {
-  border-color: color-mix(in srgb, var(--c) 50%, transparent);
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px -10px color-mix(in srgb, var(--c) 20%, transparent);
-  background: color-mix(in srgb, var(--c) 5%, #060608);
-}
-
-.skill-card:hover .skill-card__icon {
-  transform: scale(1.2) translateY(-2px);
-}
-
-.skill-card:hover .skill-card__name {
-  color: #fff;
-}
-
-.skill-card:hover .skill-card__level {
-  color: var(--c);
-}
-
-.skill-card:hover .skill-card__glow {
-  opacity: 1;
 }
 
 .skills__cta {
@@ -420,6 +284,270 @@
   transform: translateY(-2px);
 }
 
+.skills__orbit-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  min-height: 500px;
+}
+
+.orbit-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.orbit-stage {
+  position: relative;
+  width: 480px;
+  height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.orbit-rings-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.orbit-center {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  background: #0a0a0a;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.orbit-center-pulse {
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 1px solid rgba(67, 97, 238, 0.15);
+  animation: orbit-pulse 3s ease-in-out infinite;
+}
+
+.orbit-center-pulse--2 {
+  inset: -18px;
+  border-color: rgba(67, 97, 238, 0.07);
+  animation-delay: 1.5s;
+}
+
+@keyframes orbit-pulse {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.06); }
+}
+
+.orbit-center-label {
+  font-family: "DM Mono", monospace;
+  font-size: 0.6rem;
+  color: #555;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+
+.orbit-skill-node {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid color-mix(in srgb, var(--c) 30%, rgba(255,255,255,0.06));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.25s, border-color 0.25s, box-shadow 0.25s, width 0.25s, height 0.25s;
+  z-index: 5;
+  will-change: transform;
+}
+
+.orbit-skill-node:hover,
+.orbit-skill-node--hovered {
+  background: color-mix(in srgb, var(--c) 12%, transparent);
+  border-color: var(--c);
+  box-shadow: 0 0 20px color-mix(in srgb, var(--c) 30%, transparent);
+  width: 52px;
+  height: 52px;
+}
+
+.orbit-node-icon {
+  font-size: 1.1rem;
+  color: var(--c);
+  filter: drop-shadow(0 0 5px color-mix(in srgb, var(--c) 50%, transparent));
+  pointer-events: none;
+}
+
+.orbit-right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.orbit-info-panel {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 24px;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  transition: border-color 0.3s;
+}
+
+.orbit-info-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.orbit-info-icon {
+  font-size: 2rem;
+  filter: drop-shadow(0 0 8px currentColor);
+  flex-shrink: 0;
+}
+
+.orbit-info-name {
+  font-family: "Syne", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 6px;
+}
+
+.orbit-info-desc {
+  font-family: "DM Mono", monospace;
+  font-size: 0.75rem;
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.orbit-info-bar-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.orbit-info-bar-track {
+  flex: 1;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.orbit-info-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.orbit-info-bar-label {
+  font-family: "DM Mono", monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.orbit-info-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.orbit-info-empty-icon {
+  color: #2a2a2a;
+}
+
+.orbit-info-empty p {
+  font-family: "DM Mono", monospace;
+  font-size: 0.72rem;
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 220px;
+}
+
+.orbit-skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.orbit-list-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.02);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.orbit-list-item:hover,
+.orbit-list-item--active {
+  background: color-mix(in srgb, var(--c) 06%, transparent);
+  border-color: color-mix(in srgb, var(--c) 25%, transparent);
+}
+
+.orbit-list-icon {
+  font-size: 1rem;
+  color: var(--c);
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 4px color-mix(in srgb, var(--c) 40%, transparent));
+}
+
+.orbit-list-name {
+  font-family: "DM Mono", monospace;
+  font-size: 0.78rem;
+  color: #888;
+  width: 90px;
+  flex-shrink: 0;
+}
+
+.orbit-list-bar {
+  flex: 1;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.orbit-list-bar-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.orbit-list-pct {
+  font-family: "DM Mono", monospace;
+  font-size: 0.68rem;
+  color: #444;
+  flex-shrink: 0;
+  width: 32px;
+  text-align: right;
+}
+
 @media (max-width: 1024px) {
   #skills {
     padding: 90px 0 80px;
@@ -434,8 +562,14 @@
     gap: 2rem;
   }
 
-  .skills__grid {
-    grid-template-columns: repeat(3, 1fr);
+  .skills__orbit-section {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .orbit-stage {
+    width: 400px;
+    height: 400px;
   }
 
   .skills__cta {
@@ -454,10 +588,6 @@
     padding: 0 20px;
   }
 
-  .skills__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .skills__title {
     font-size: 2.2rem;
   }
@@ -469,5 +599,58 @@
 
   .skills__cta-btn {
     justify-content: center;
+  }
+
+  .orbit-stage {
+    width: 320px;
+    height: 320px;
+  }
+
+  .orbit-list-name {
+    width: 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  .orbit-stage {
+    width: 280px;
+    height: 280px;
+  }
+
+  .orbit-skill-node {
+    width: 36px;
+    height: 36px;
+  }
+
+  .orbit-node-icon {
+    font-size: 0.9rem;
+  }
+
+  .orbit-info-panel {
+    padding: 18px;
+  }
+}
+
+@media (max-width: 360px) {
+  .orbit-stage {
+    width: 240px;
+    height: 240px;
+  }
+
+  .orbit-skill-node {
+    width: 32px;
+    height: 32px;
+  }
+
+  #skills {
+    padding: 70px 0 60px;
+  }
+
+  .skills__inner {
+    gap: 2.5rem;
+  }
+
+  .skills__cta {
+    padding: 20px;
   }
 }

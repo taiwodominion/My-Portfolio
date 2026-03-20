@@ -7,11 +7,15 @@ import {
   SiGit,
   SiPostman,
   SiFirebase,
+  SiGreensock,
+  SiThreedotjs,
+  SiSupabase,
 } from "react-icons/si";
 import { FaGithub, FaWhatsapp } from "react-icons/fa6";
 import heroImage from "/my_animated_pic.jpg";
 import { useNavigate } from "react-router-dom";
 import { projects } from "./ProjectsInfo";
+import { Gravity, MatterBody } from "./Gravity";
 import "../css/Hero.css";
 
 const Spline = lazy(() => import("@splinetool/react-spline"));
@@ -89,11 +93,13 @@ const Hero = () => {
     { icon: <SiGit />, label: "Git", color: "#F05032" },
     { icon: <SiPostman />, label: "APIs", color: "#FF6C37" },
     { icon: <SiFirebase />, label: "Firebase", color: "#FFCA28" },
+    { icon: <SiGreensock />, label: "GSAP", color: "#88CE02" },
+    { icon: <SiThreedotjs />, label: "Three.js", color: "#eecbcb" },
+    { icon: <SiSupabase />, label: "Supabase", color: "#3ECF8E" },
   ];
 
-  const projectCountDisplay = projects.length > 5 
-    ? `${projects.length - 1}+` 
-    : projects.length;
+  const projectCountDisplay =
+    projects.length > 5 ? `${projects.length - 1}+` : projects.length;
 
   return (
     <section className={`hero ${mounted ? "hero--mounted" : ""}`}>
@@ -269,21 +275,46 @@ const Hero = () => {
         >
           <span>Tech Stack</span>
         </div>
-
         <div
           className="hero__tech animate-slide-up"
           style={{ "--delay": "0.55s" }}
         >
-          {techStack.map((tech, i) => (
-            <div
-              className="hero__tech-item"
-              key={i}
-              style={{ "--c": tech.color, "--i": i }}
+          <div className="hero__divider">
+            <span>Tech Stack</span>
+          </div>
+          <div className="hero__tech-arena">
+            <Gravity
+              gravity={{ x: 0, y: 0.6 }}
+              grabCursor
+              addTopWall={true}
+              resetOnResize={true}
+              className="hero__tech-gravity"
             >
-              <span className="hero__tech-icon">{tech.icon}</span>
-              <span className="hero__tech-label">{tech.label}</span>
-            </div>
-          ))}
+              {techStack.map((tech, i) => (
+                <MatterBody
+                  key={i}
+                  x={`${10 + i * 13}%`}
+                  y={`${15 + (i % 3) * 25}%`}
+                  angle={(i % 2 === 0 ? -1 : 1) * (i * 3)}
+                  matterBodyOptions={{
+                    friction: 0.3,
+                    restitution: 0.5,
+                    density: 0.002,
+                    isStatic: false,
+                  }}
+                  isDraggable
+                >
+                  <div
+                    className="hero__tech-pill"
+                    style={{ "--c": tech.color }}
+                  >
+                    <span className="hero__tech-icon">{tech.icon}</span>
+                    <span className="hero__tech-label">{tech.label}</span>
+                  </div>
+                </MatterBody>
+              ))}
+            </Gravity>
+          </div>
         </div>
       </div>
     </section>
