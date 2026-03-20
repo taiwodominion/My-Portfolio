@@ -227,6 +227,47 @@ export const Gravity = forwardRef(
       });
 
       const mouse = Mouse.create(render.current.canvas);
+
+      mouse.element.removeEventListener('mousewheel', mouse.mousewheel);
+      mouse.element.removeEventListener('DOMMouseScroll', mouse.mousewheel);
+
+      const canvasEl = render.current.canvas;
+
+      const getTouchPos = (e) => {
+        const rect = canvasEl.getBoundingClientRect();
+        const touch = e.touches[0] || e.changedTouches[0];
+        return {
+          x: touch.clientX - rect.left,
+          y: touch.clientY - rect.top,
+        };
+      };
+
+      const onTouchStart = (e) => {
+        const pos = getTouchPos(e);
+        mouse.position.x = pos.x;
+        mouse.position.y = pos.y;
+        mouse.mousedown({ clientX: pos.x + canvasEl.getBoundingClientRect().left, clientY: pos.y + canvasEl.getBoundingClientRect().top });
+        mouseDown.current = true;
+      };
+
+      const onTouchMove = (e) => {
+        e.preventDefault();
+        const pos = getTouchPos(e);
+        mouse.position.x = pos.x;
+        mouse.position.y = pos.y;
+        mouse.mousemove({ clientX: pos.x + canvasEl.getBoundingClientRect().left, clientY: pos.y + canvasEl.getBoundingClientRect().top });
+      };
+
+      const onTouchEnd = (e) => {
+        const pos = getTouchPos(e);
+        mouse.mouseup({ clientX: pos.x + canvasEl.getBoundingClientRect().left, clientY: pos.y + canvasEl.getBoundingClientRect().top });
+        mouseDown.current = false;
+      };
+
+      canvasEl.addEventListener('touchstart', onTouchStart, { passive: false });
+      canvasEl.addEventListener('touchmove', onTouchMove, { passive: false });
+      canvasEl.addEventListener('touchend', onTouchEnd, { passive: false });
+
       mouseConstraint.current = MouseConstraint.create(engine.current, {
         mouse,
         constraint: {
@@ -355,6 +396,7 @@ export const Gravity = forwardRef(
             left: 0,
             width: "100%",
             height: "100%",
+            touchAction: "none",
             ...style,
           }}
           {...props}

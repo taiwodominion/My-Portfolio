@@ -278,9 +278,7 @@ const Hero = () => {
           className="hero__tech animate-slide-up"
           style={{ "--delay": "0.55s" }}
         >
-          <div className="hero__divider">
-            <span>Tech Stack</span>
-          </div>
+          
           <div className="hero__tech-arena">
             <Gravity
               gravity={{ x: 0, y: 0.6 }}
