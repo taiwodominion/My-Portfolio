@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import kinetixImage from "../assets/Kinetix.png";
+import kinetixImage from "../assets/kinetix.png";
 import novaImage from "../assets/NovaReach.jpg";
 import vintexcImage from "../assets/vintexc-hero.png";
 import tdstoreImg from "../assets/td-store.jpg";
